@@ -171,6 +171,16 @@ p { color: var(--text-light); }
   display: flex;
   justify-content: center;
   border-radius: 50px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: var(--shadow-lg);
 }
 
 .nav-container {
@@ -725,17 +735,7 @@ p { color: var(--text-light); }
   font-weight: 500;
 }
 
-/* --- Scroll Animations --- */
-.scroll-fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
 
-.scroll-fade.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* --- Responsive Layouts --- */
 @media (max-width: 900px) {

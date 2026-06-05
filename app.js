@@ -91,25 +91,6 @@ navLinks.forEach(link => {
   });
 });
 
-// --- Scroll Animations (Intersection Observer) ---
-const fadeObserverOptions = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.15
-};
-
-const fadeObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target); // Animate only once
-    }
-  });
-}, fadeObserverOptions);
-
-scrollFadeElements.forEach(el => {
-  fadeObserver.observe(el);
-});
 
 // --- FAQ Accordion Logic ---
 document.querySelectorAll('.faq-question').forEach(question => {
