@@ -615,7 +615,8 @@ footer {
     padding: 1.5rem;
   }
   .hero-image {
-    height: 300px;
+    height: 250px;
+    margin-top: 1rem;
   }
   .abstract-shape-1 {
     width: 200px;
@@ -624,6 +625,10 @@ footer {
   .abstract-shape-2 {
     width: 150px;
     height: 150px;
+    right: auto;
+    bottom: auto;
+    margin-left: 80px;
+    margin-top: 80px;
   }
 }
 
