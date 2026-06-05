@@ -13,7 +13,16 @@ const josaaPlans = [
 // --- Payment & WhatsApp Configuration ---
 const upiId = "alexaman000r-1@oksbi";
 const payeeName = "Aman Raj";
-const finalWhatsappNumber = "918210330277";
+const finalWhatsappNumber = "919955136965";
+
+// --- Ambassador Codes ---
+const validAmbassadors = {
+  'VECTOR10': 'Vector',
+  'PILOT10': 'College Pilot Team',
+  'FRESH10': 'Freshers Community',
+  'JOSAA10': 'JOSAA Expert'
+};
+let appliedDiscount = null;
 
 // --- DOM Elements ---
 const coursesGrid = document.getElementById('courses-grid');
@@ -111,24 +120,83 @@ const modal = document.getElementById('payment-modal');
 const serviceNameInput = document.getElementById('service-name');
 const serviceAmountInput = document.getElementById('service-amount');
 const paymentTitle = document.getElementById('payment-title');
-const paymentAmount = document.getElementById('payment-amount');
+const originalAmountEl = document.getElementById('original-amount');
+const discountedAmountEl = document.getElementById('discounted-amount');
 const qrImage = document.getElementById('qr-image');
 const form = document.getElementById('registration-form');
+
+// Coupon Elements
+const couponInput = document.getElementById('ambassador-code');
+const applyCodeBtn = document.getElementById('apply-code-btn');
+const couponMessage = document.getElementById('coupon-message');
+
+function generateQrCode(amount) {
+  const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
+  qrImage.src = qrUrl;
+}
 
 window.initiatePayment = function(serviceName, amount) {
   serviceNameInput.value = serviceName;
   serviceAmountInput.value = amount;
   paymentTitle.textContent = `Register for ${serviceName}`;
-  paymentAmount.textContent = `₹${amount}`;
   
-  // Generate QR Code URL
-  const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
-  qrImage.src = qrUrl;
+  // Reset Discount State
+  appliedDiscount = null;
+  couponInput.value = '';
+  couponMessage.textContent = '';
+  couponMessage.className = '';
+  originalAmountEl.textContent = `₹${amount}`;
+  originalAmountEl.classList.remove('strike-through');
+  discountedAmountEl.style.display = 'none';
+  
+  generateQrCode(amount);
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden'; // Prevent background scrolling
 };
+
+// Ambassador Code Logic
+applyCodeBtn.addEventListener('click', () => {
+  const code = couponInput.value.trim().toUpperCase();
+  const baseAmount = parseFloat(serviceAmountInput.value);
+  
+  if (!code) return;
+
+  if (validAmbassadors[code]) {
+    // Valid code
+    const discountAmount = baseAmount * 0.10;
+    const finalAmount = baseAmount - discountAmount;
+    
+    appliedDiscount = {
+      code: code,
+      ambassadorName: validAmbassadors[code],
+      originalPrice: baseAmount,
+      discountedPrice: finalAmount.toFixed(2),
+      discountAmount: discountAmount.toFixed(2)
+    };
+    
+    // Update UI
+    originalAmountEl.classList.add('strike-through');
+    discountedAmountEl.textContent = `₹${finalAmount.toFixed(2)}`;
+    discountedAmountEl.style.display = 'inline';
+    
+    couponMessage.textContent = `🎉 Ambassador Code Applied! You received a 10% discount.`;
+    couponMessage.className = 'success-text';
+    
+    generateQrCode(finalAmount.toFixed(2));
+  } else {
+    // Invalid code
+    appliedDiscount = null;
+    originalAmountEl.classList.remove('strike-through');
+    discountedAmountEl.style.display = 'none';
+    
+    couponMessage.textContent = `❌ Invalid Ambassador Code.`;
+    couponMessage.className = 'error-text';
+    
+    generateQrCode(baseAmount);
+  }
+});
 
 window.closePaymentModal = function() {
   modal.classList.remove('active');
@@ -185,16 +253,24 @@ form.addEventListener('submit', async (e) => {
       const email = document.getElementById('email').value;
       const utr = document.getElementById('transaction-id').value;
       const service = serviceNameInput.value;
-      const amount = serviceAmountInput.value;
       
       let message = `*🚀 New Registration - College Pilot*%0A%0A` +
                     `*Name:* ${name}%0A` +
                     `*Mobile:* ${mobile}%0A` +
                     `*Email:* ${email}%0A` +
-                    `*Service:* ${service}%0A` +
-                    `*Amount:* ₹${amount}%0A` +
-                    `*Transaction UTR:* ${utr}%0A%0A` +
-                    `*Payment Screenshot:* ${downloadUrl}`;
+                    `*Course Name:* ${service}%0A`;
+                    
+      if (appliedDiscount) {
+        message += `*Original Price:* ₹${appliedDiscount.originalPrice}%0A` +
+                   `*Discounted Price:* ₹${appliedDiscount.discountedPrice}%0A` +
+                   `*Ambassador Name:* ${appliedDiscount.ambassadorName}%0A` +
+                   `*Ambassador Code Used:* ${appliedDiscount.code}%0A`;
+      } else {
+        message += `*Amount Paid:* ₹${serviceAmountInput.value}%0A`;
+      }
+      
+      message += `*Transaction UTR:* ${utr}%0A%0A` +
+                 `*Payment Screenshot:* ${downloadUrl}`;
                       
       // Redirect to WhatsApp
       window.location.href = `https://wa.me/${finalWhatsappNumber}?text=${message}`;

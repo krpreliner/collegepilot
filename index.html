@@ -148,6 +148,7 @@
         <div class="section-header">
           <h2>Premium Skill Development</h2>
           <p>Master top technologies with our highly-rated courses.</p>
+          <div class="discount-badge mt-1">🌟 Use an Ambassador Code & Save 10%</div>
         </div>
         <div class="grid-container" id="courses-grid">
           <!-- JS will inject courses here -->
@@ -161,6 +162,7 @@
         <div class="section-header">
           <h2>JOSAA & CSAB Counselling Support</h2>
           <p>Don't risk your rank. Get expert guidance for the best possible college seat.</p>
+          <div class="discount-badge mt-1">🌟 Use an Ambassador Code & Save 10%</div>
         </div>
         
         <div class="josaa-layout">
@@ -281,12 +283,25 @@
           </div>
           <div class="payment-details">
             <p><strong>UPI ID:</strong> alexaman000r-1@oksbi</p>
-            <p><strong>Amount:</strong> <span id="payment-amount" class="highlight-text">₹0</span></p>
+            <p><strong>Amount:</strong> 
+              <span id="original-amount" class="highlight-text">₹0</span>
+              <span id="discounted-amount" class="highlight-text success-text" style="display: none;"></span>
+            </p>
           </div>
         </div>
 
         <div class="payment-step">
           <h3>2. Submit Details</h3>
+          
+          <div class="form-group coupon-container glass-card">
+            <label>Have an Ambassador Code?</label>
+            <div class="coupon-input-group">
+              <input type="text" id="ambassador-code" placeholder="Enter code here" style="text-transform: uppercase;">
+              <button type="button" class="btn btn-secondary" id="apply-code-btn">Apply</button>
+            </div>
+            <small id="coupon-message"></small>
+          </div>
+
           <form id="registration-form">
             <input type="hidden" id="service-name" name="service-name">
             <input type="hidden" id="service-amount" name="service-amount">
