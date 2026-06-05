@@ -25,7 +25,8 @@ const validAmbassadors = {
   'VECTOR10': 'Vector',
   'PILOT10': 'College Pilot Team',
   'FRESH10': 'Freshers Community',
-  'JOSAA10': 'JOSAA Expert'
+  'JOSAA10': 'JOSAA Expert',
+  'ABHI10': 'Abhinav Singh'
 };
 let appliedDiscount = null;
 
