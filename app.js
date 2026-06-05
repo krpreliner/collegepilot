@@ -182,9 +182,7 @@ const applyCodeBtn = document.getElementById('apply-code-btn');
 const couponMessage = document.getElementById('coupon-message');
 
 function generateQrCode(amount) {
-  const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
-  qrImage.src = qrUrl;
+  qrImage.src = 'assets/navi_qr.jpg';
 }
 
 window.initiatePayment = function(serviceName, amount) {
