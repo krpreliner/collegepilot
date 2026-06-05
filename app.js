@@ -1,6 +1,6 @@
 // --- Data ---
 const courses = [
-  { id: 'c1', title: 'DSA & Problem Solving', price: 999, features: ['100+ Hours Live Classes', 'Daily Coding Problems', 'Mock Interviews', 'Placement Assistance'] },
+  { id: 'c1', title: 'DSA & Problem Solving', price: 999, features: ['100+ Hours Video Lectures', 'Daily Coding Problems', 'Mock Interviews', 'Placement Assistance'] },
   { id: 'c2', title: 'Full Stack Web Dev', price: 999, features: ['MERN Stack', 'Real-world Projects', 'Resume Building', 'Guaranteed Internship'] }
 ];
 
