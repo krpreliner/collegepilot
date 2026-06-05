@@ -6,8 +6,8 @@ const courses = [
 ];
 
 const josaaPlans = [
-  { id: 'j1', title: 'JOSAA Counselling', price: 599, features: ['Personalized College Shortlist', 'Choice Filling Strategy', 'Round-wise Guidance'] },
-  { id: 'j2', title: 'JOSAA + CSAB Counselling', price: 999, features: ['Everything in JOSAA', 'Expert Support Till Admission', 'Priority Call Support'] }
+  { id: 'j1', title: 'JOSAA Counselling', price: 599, features: ['Personalized College Shortlist', 'Choice Filling Strategy', 'Round-wise Guidance', 'WhatsApp Support'] },
+  { id: 'j2', title: 'JOSAA + CSAB Counselling', price: 999, features: ['Everything in JoSAA Plan', 'CSAB Strategy', 'Expert Support Till Admission', 'Priority Call Support', 'Seat Upgrade Guidance'] }
 ];
 
 // --- Payment & WhatsApp Configuration ---
@@ -40,12 +40,12 @@ function renderCards(data, container, buttonText) {
     const card = document.createElement('div');
     card.className = 'card glass-card';
     
-    // Add "BEST VALUE" tag for premium JOSAA plan as per poster
+    // Add MOST POPULAR tag for premium JOSAA plan
     let badgeHtml = '';
     if(item.price === 999) {
-      badgeHtml = `<div style="position:absolute; top:-15px; right:20px; background:var(--accent-color); color:#fff; font-size:0.8rem; font-weight:bold; padding:4px 12px; border-radius:20px; box-shadow:0 4px 10px rgba(255,107,129,0.4);">BEST VALUE</div>`;
+      badgeHtml = `<div style="position:absolute; top:-12px; right:20px; background:linear-gradient(135deg, #FF6B81, #FF4757); color:#fff; font-size:0.75rem; font-weight:800; padding:5px 15px; border-radius:20px; box-shadow:0 0 15px rgba(255, 71, 87, 0.6); letter-spacing: 0.5px;">🔥 MOST POPULAR</div>`;
       card.style.position = 'relative';
-      card.style.border = '2px solid var(--primary-color)';
+      card.style.border = '2px solid #FF4757';
     }
 
     card.innerHTML = `
