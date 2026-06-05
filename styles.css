@@ -25,11 +25,19 @@
   margin: 0; padding: 0; box-sizing: border-box;
 }
 
-body {
+html, body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure AOS doesn't cause horizontal scrollbar on mobile */
+main, section {
   overflow-x: hidden;
 }
 
@@ -288,10 +296,19 @@ a { text-decoration: none; color: inherit; }
 
 /* Mobile (320px - 768px) */
 @media (max-width: 768px) {
-  .hero-content h1 { font-size: 2.5rem; }
-  .hero-subtext { font-size: 1.1rem; max-width: 100%; }
+  .hero-section {
+    padding: 7rem 0 3rem;
+  }
+  .hero-container {
+    padding-top: 1rem;
+  }
+  .internships-container {
+    flex-direction: column !important;
+  }
+  .hero-content h1 { font-size: 2.2rem; }
+  .hero-subtext { font-size: 1.05rem; max-width: 100%; }
   .hero-buttons { flex-direction: column; width: 100%; }
-  .hero-buttons .btn { width: 100%; }
+  .hero-buttons .btn { width: 100%; margin-bottom: 0.5rem; }
   
   .features-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
@@ -305,10 +322,10 @@ a { text-decoration: none; color: inherit; }
   .step-circle { margin: 0 1.5rem 0 0; min-width: 60px; }
   
   .nav-links {
-    display: flex; flex-direction: column; position: absolute; top: 3.5rem; left: -2rem;
-    width: calc(100% + 4rem); background: var(--white); padding: 1rem 0; box-shadow: var(--shadow-md);
+    display: flex; flex-direction: column; position: absolute; top: 100%; left: 0;
+    width: 100%; background: var(--white); padding: 1rem 0; box-shadow: var(--shadow-md);
     border-radius: 0 0 20px 20px; clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: clip-path 0.3s ease;
-    opacity: 0; pointer-events: none;
+    opacity: 0; pointer-events: none; margin-top: 10px;
   }
   .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 1; pointer-events: auto; }
   .hamburger { display: flex; }
