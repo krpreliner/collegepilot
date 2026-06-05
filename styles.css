@@ -559,56 +559,42 @@ p { color: var(--text-light); }
   color: var(--text-light);
 }
 
-/* --- Desktop Floating WhatsApp --- */
-.whatsapp-float {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #25D366;
-  color: #FFF;
-  border-radius: 50px;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 35px;
-  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-  z-index: 1000;
-  transition: var(--transition);
-}
-.whatsapp-float svg { width: 35px; height: 35px; }
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
-}
-
-/* --- Mobile Sticky Bottom Bar --- */
-.mobile-sticky-bar {
-  display: none;
+/* --- Sticky Bottom CTA Bar (All Devices) --- */
+.sticky-cta-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   background: var(--white);
-  padding: 10px 15px;
+  padding: 12px 20px;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
   z-index: 2000;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.mobile-cta-text {
-  font-size: 0.85rem;
-  color: var(--text-light);
-  margin-bottom: 8px;
-  font-weight: 600;
+.sticky-cta-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: center;
+}
+
+.sticky-cta-text {
+  font-size: 1rem;
+  color: var(--text-main);
+  font-weight: 700;
 }
 
 .btn-whatsapp {
   background-color: #25D366;
   color: #fff;
-  padding: 0.7rem;
-  font-size: 1.1rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 50px;
 }
 .btn-whatsapp:hover {
   background-color: #20BA56;
@@ -774,12 +760,21 @@ p { color: var(--text-light); }
 }
 
 @media (max-width: 768px) {
-  .desktop-only { display: none !important; }
-  .mobile-sticky-bar { display: block; }
+  .sticky-cta-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sticky-cta-text {
+    font-size: 0.9rem;
+  }
+  .btn-whatsapp {
+    width: 100%;
+    text-align: center;
+  }
   
   /* Add padding to body so the bottom bar doesn't overlap content */
   body {
-    padding-bottom: 80px; 
+    padding-bottom: 90px; 
   }
 
   .nav-container { position: relative; }
