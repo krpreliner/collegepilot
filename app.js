@@ -16,8 +16,8 @@ const successStories = [
 ];
 
 // --- Payment & WhatsApp Configuration ---
-const upiId = "alexaman000r-1@oksbi";
-const payeeName = "Aman Raj";
+const upiId = "adityapandey7397@naviaxis";
+const payeeName = "Aditya Kumar Pandey";
 const finalWhatsappNumber = "919955136965";
 
 // --- Ambassador Codes ---
@@ -182,7 +182,9 @@ const applyCodeBtn = document.getElementById('apply-code-btn');
 const couponMessage = document.getElementById('coupon-message');
 
 function generateQrCode(amount) {
-  qrImage.src = 'assets/navi_qr.jpg';
+  const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
+  qrImage.src = qrUrl;
 }
 
 window.initiatePayment = function(serviceName, amount) {
