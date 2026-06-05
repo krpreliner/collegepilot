@@ -5,8 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>College Pilot - Shape Your Career with Confidence</title>
   <meta name="description" content="Get expert counselling, live classes, premium study material, placement guidance and internship opportunities — all in one place.">
-  <link rel="stylesheet" href="styles.css?v=3">
+  
+  <!-- Fonts & AOS Animations -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4">
+  
+  <!-- FAQ JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What is JoSAA Counselling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JoSAA (Joint Seat Allocation Authority) is the centralized counselling process for admission to IITs, NITs, IIITs, and other GFTIs based on JEE Main and Advanced ranks."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What is CSAB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSAB (Central Seat Allocation Board) conducts special rounds of counselling for the vacant seats left in NITs, IIITs, and GFTIs after all JoSAA rounds are completed."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Can I get an NIT with my rank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, depending on your category, home state quota, and choice filling strategy. Our expert counsellors analyze previous year cutoffs to predict and secure the best possible NIT for your rank."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Why use College Pilot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "College Pilot provides data-driven, personalized choice filling lists, one-to-one mentorship, and expert guidance till admission to ensure you don't make mistakes that could cost you a good college."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How does counselling work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once you enroll, we analyze your rank, create a personalized college shortlist, provide the exact choice filling order, and guide you through every round of seat allotment and physical reporting."
+      }
+    }]
+  }
+  </script>
 </head>
 <body>
 
@@ -18,9 +65,9 @@
       </div>
       <ul class="nav-links">
         <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#why-us" class="nav-link">Why Us</a></li>
+        <li><a href="#packages" class="nav-link">Counselling</a></li>
         <li><a href="#courses" class="nav-link">Courses</a></li>
-        <li><a href="#josaa" class="nav-link">JOSAA</a></li>
+        <li><a href="#success" class="nav-link">Success Stories</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
       </ul>
       <div class="hamburger">
@@ -29,162 +76,111 @@
     </div>
   </nav>
 
-  <!-- Main Content Area (Continuous Scrolling) -->
+  <!-- Main Content Area -->
   <main id="app-content">
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
       <div class="hero-container">
-        <div class="hero-content">
-          <h1>Shape Your Career with <br><span class="highlight">Confidence</span></h1>
-          <h2 class="hero-gradient-text">JOSAA Counselling • Skill Development • Internship Support</h2>
-          <p class="hero-subtext">Get expert counselling, live classes, premium study material, placement guidance and internship opportunities — all in one place.</p>
+        <div class="hero-content" data-aos="fade-right">
+          <h1>Get Your Dream College Through Expert <span class="highlight">JoSAA & CSAB</span> Counselling</h1>
+          <p class="hero-subtext">Trusted by 1000+ Students Across India. We analyze your rank to secure the absolute best college seat you deserve.</p>
           <div class="hero-buttons">
-            <button class="btn btn-primary" onclick="scrollToSection('courses')">Get Started</button>
-            <button class="btn btn-secondary" onclick="scrollToSection('josaa')">Book Free Counselling</button>
+            <button class="btn btn-primary" onclick="scrollToSection('packages')">Book Counselling</button>
+            <a href="https://wa.me/919955136965" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Talk on WhatsApp</a>
           </div>
         </div>
-        <div class="hero-illustration">
-          <img src="assets/edtech_hero.png" alt="Student Career Path Illustration" class="floating-img">
+        <div class="hero-illustration-wrapper" data-aos="fade-left" data-aos-delay="200">
+          <img src="assets/hero_illustration.png" alt="Happy Students" class="floating-img">
+          
+          <!-- Floating Feature Cards -->
+          <div class="float-card fc-1 glass-card">🎯 Best College Prediction</div>
+          <div class="float-card fc-2 glass-card">🏆 Expert Mentorship</div>
+          <div class="float-card fc-3 glass-card">📞 Priority Support</div>
         </div>
       </div>
     </section>
 
-    <!-- Trust Statistics Section -->
-    <section id="trust-stats" class="stats-section">
+    <!-- Trust Counters Section -->
+    <section id="trust-counters" class="stats-section">
       <div class="container">
         <div class="stats-grid">
-          <div class="stat-card glass-card">
-            <span class="stat-icon">📚</span>
-            <h4>Live Classes</h4>
+          <div class="stat-card glass-card" data-aos="zoom-in" data-aos-delay="0">
+            <h3>1000+</h3>
+            <p>Students Guided</p>
           </div>
-          <div class="stat-card glass-card">
-            <span class="stat-icon">📖</span>
-            <h4>Expert Study Material</h4>
+          <div class="stat-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+            <h3>95%</h3>
+            <p>Success Rate</p>
           </div>
-          <div class="stat-card glass-card">
-            <span class="stat-icon">💼</span>
-            <h4>1000+ Internship Opportunities</h4>
+          <div class="stat-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+            <h3>24x7</h3>
+            <p>WhatsApp Support</p>
           </div>
-          <div class="stat-card glass-card">
-            <span class="stat-icon">🎯</span>
-            <h4>100% Placement Assistance</h4>
-          </div>
-          <div class="stat-card glass-card">
-            <span class="stat-icon">🚀</span>
-            <h4>Best for Beginners</h4>
-          </div>
-          <div class="stat-card glass-card">
-            <span class="stat-icon">🏆</span>
-            <h4>Guaranteed Internship Opportunity</h4>
+          <div class="stat-card glass-card" data-aos="zoom-in" data-aos-delay="300">
+            <h3>4.9★</h3>
+            <p>Student Rating</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Why Choose Us -->
+    <!-- Why Choose College Pilot -->
     <section id="why-us" class="features-section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h2>Why Choose College Pilot</h2>
           <p>Everything you need to secure a top college and land your dream job.</p>
         </div>
         <div class="features-grid">
-          <div class="feature-box glass-card">
+          <div class="feature-box glass-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon-wrapper">🎯</div>
+            <h4>Accurate Choice Filling</h4>
+            <p>Data-driven lists tailored exactly to your JEE rank.</p>
+          </div>
+          <div class="feature-box glass-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="feature-icon-wrapper">📊</div>
+            <h4>Rank Analysis</h4>
+            <p>We analyze past 5 years of cutoffs to predict your seat.</p>
+          </div>
+          <div class="feature-box glass-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon-wrapper">🏆</div>
+            <h4>Proven Results</h4>
+            <p>95% of our students get a better branch than expected.</p>
+          </div>
+          <div class="feature-box glass-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="feature-icon-wrapper">📞</div>
+            <h4>One-to-One Mentorship</h4>
+            <p>Direct calls with assigned expert counsellors.</p>
+          </div>
+          <div class="feature-box glass-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-icon-wrapper">💬</div>
+            <h4>WhatsApp Support</h4>
+            <p>Instant doubt resolution during critical counselling rounds.</p>
+          </div>
+          <div class="feature-box glass-card" data-aos="fade-up" data-aos-delay="350">
             <div class="feature-icon-wrapper">🎓</div>
-            <h4>JOSAA & CSAB Guidance</h4>
-            <p>Data-driven choice filling lists tailored to your exact JEE rank.</p>
-          </div>
-          <div class="feature-box glass-card">
-            <div class="feature-icon-wrapper">💻</div>
-            <h4>Live Interactive Classes</h4>
-            <p>Engaging sessions with industry experts.</p>
-          </div>
-          <div class="feature-box glass-card">
-            <div class="feature-icon-wrapper">⚡</div>
-            <h4>DSA + Web Dev Training</h4>
-            <p>Master the most in-demand tech skills from scratch.</p>
-          </div>
-          <div class="feature-box glass-card">
-            <div class="feature-icon-wrapper">📄</div>
-            <h4>Resume Building Support</h4>
-            <p>Stand out to recruiters with a professional CV.</p>
-          </div>
-          <div class="feature-box glass-card">
-            <div class="feature-icon-wrapper">🎤</div>
-            <h4>Mock Interviews</h4>
-            <p>Practice with real hiring managers to conquer interview anxiety.</p>
-          </div>
-          <div class="feature-box glass-card">
-            <div class="feature-icon-wrapper">🤝</div>
-            <h4>Internship Guarantee</h4>
-            <p>Gain real-world experience upon course completion.</p>
-          </div>
-          <div class="feature-box glass-card">
-            <div class="feature-icon-wrapper">🚀</div>
-            <h4>Placement Preparation</h4>
-            <p>Aptitude, logical reasoning, and soft-skills training.</p>
-          </div>
-          <div class="feature-box glass-card">
-            <div class="feature-icon-wrapper">🌍</div>
-            <h4>Community Support</h4>
-            <p>Join a network of ambitious engineers.</p>
+            <h4>Admission Assistance</h4>
+            <p>Guidance through document verification and physical reporting.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Success Banner -->
-    <section class="success-banner">
-      <div class="banner-content">
-        <h2>Join 1000+ students who have already started their career journey with College Pilot.</h2>
-        <button class="btn btn-white" onclick="scrollToSection('courses')">Start Learning Today</button>
-      </div>
-    </section>
-
-    <!-- Courses Section -->
-    <section id="courses" class="programs-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Premium Skill Development</h2>
-          <p>Master top technologies with our highly-rated courses.</p>
-          <div class="discount-badge mt-1">🌟 Use an Ambassador Code & Save 10%</div>
-        </div>
-        <div class="grid-container" id="courses-grid">
-          <!-- JS will inject courses here -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing Section (JOSAA) -->
-    <section id="josaa" class="pricing-section">
+    <!-- Counselling Packages -->
+    <section id="packages" class="pricing-section">
       <div class="pricing-container">
-        <div class="pricing-header">
-          <h2>Get Your Dream College with Expert Counselling</h2>
-          <p class="pricing-subtext">Trusted by 1000+ Students</p>
-          <div class="trust-badges">
-            <span class="badge">🎓 JoSAA & CSAB Experts</span>
-            <span class="badge">⭐ 4.9/5 Student Rating</span>
-            <span class="badge">📞 Personal Guidance</span>
-          </div>
+        <div class="pricing-header" data-aos="fade-up">
+          <h2>Counselling Packages</h2>
+          <p class="pricing-subtext">Choose the perfect plan for your rank.</p>
         </div>
         
         <div class="pricing-grid" id="josaa-grid">
           <!-- JS will inject josaa plans here -->
         </div>
 
-        <!-- Additional Features Grid -->
-        <div class="features-icon-grid">
-          <div class="icon-item"><span class="icon">🎯</span> Best College Prediction</div>
-          <div class="icon-item"><span class="icon">📊</span> Rank Analysis</div>
-          <div class="icon-item"><span class="icon">📞</span> 1-to-1 Mentorship</div>
-          <div class="icon-item"><span class="icon">💬</span> WhatsApp Support</div>
-          <div class="icon-item"><span class="icon">🏆</span> Proven Results</div>
-          <div class="icon-item"><span class="icon">🎓</span> Admission Assistance</div>
-        </div>
-
         <!-- Ambassador Banner -->
-        <div class="ambassador-banner">
+        <div class="ambassador-banner" data-aos="zoom-in">
           <div class="banner-content-wrap">
             <h3>🎉 Save 10% With Ambassador Code</h3>
             <p>Apply a valid ambassador code at checkout and get instant 10% discount.</p>
@@ -194,23 +190,135 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials-section">
+    <!-- Student Success Stories Carousel -->
+    <section id="success" class="testimonials-section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h2>Student Success Stories</h2>
+          <p>See where our students landed.</p>
         </div>
-        <div class="testimonials-grid">
-          <div class="testimonial-card glass-card">
-            <div class="stars">★★★★★</div>
-            <p>"The JOSAA choice filling list provided by College Pilot got me into an NIT when I had lost all hope. Truly life changing!"</p>
-            <div class="student-info">- Rahul K., NIT Trichy</div>
+        <div class="carousel-container" data-aos="fade-up">
+          <div class="carousel-track" id="success-track">
+            <!-- JS will inject carousel items -->
           </div>
-          <div class="testimonial-card glass-card">
-            <div class="stars">★★★★★</div>
-            <p>"The Web Dev course is fantastic. The live classes and guaranteed internship helped me land my first job as a fresher."</p>
-            <div class="student-info">- Ananya S., Software Developer</div>
+          <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colleges We Cover -->
+    <section id="colleges-covered" class="colleges-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Colleges We Cover</h2>
+          <p>We provide choice filling support for all major technical institutes.</p>
+        </div>
+        <div class="colleges-grid">
+          <div class="college-card" data-aos="flip-left" data-aos-delay="50">IITs</div>
+          <div class="college-card" data-aos="flip-left" data-aos-delay="100">NITs</div>
+          <div class="college-card" data-aos="flip-left" data-aos-delay="150">IIITs</div>
+          <div class="college-card" data-aos="flip-left" data-aos-delay="200">GFTIs</div>
+          <div class="college-card" data-aos="flip-left" data-aos-delay="250">State Govt. Colleges</div>
+          <div class="college-card" data-aos="flip-left" data-aos-delay="300">Top Private Colleges</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Counselling Process Timeline -->
+    <section id="process" class="process-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Our Counselling Process</h2>
+          <p>A structured approach to secure your seat.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-circle">1</div>
+            <h4>Rank Analysis</h4>
+            <p>We analyze your JEE Rank, category, and home state.</p>
           </div>
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-circle">2</div>
+            <h4>College Shortlisting</h4>
+            <p>Creating a targeted list of achievable colleges & branches.</p>
+          </div>
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-circle">3</div>
+            <h4>Choice Filling</h4>
+            <p>Providing the exact priority order for maximum probability.</p>
+          </div>
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="400">
+            <div class="step-circle">4</div>
+            <h4>Seat Allotment</h4>
+            <p>Round-by-round strategy to Float, Slide, or Freeze.</p>
+          </div>
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="500">
+            <div class="step-circle">5</div>
+            <h4>Admission</h4>
+            <p>Guidance for document verification & physical reporting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internship & Placement Program -->
+    <section id="internships" class="hero-section" style="background:var(--bg-color); padding: 5rem 0;">
+      <div class="hero-container" style="flex-direction: row-reverse;">
+        <div class="hero-content" data-aos="fade-left">
+          <h2>Premium <span class="highlight">Internship & Placement</span> Program</h2>
+          <p class="hero-subtext" style="color:var(--text-main);">Master top technologies and secure your first job.</p>
+          <ul class="feature-list" style="list-style:none; padding:0; margin-bottom:2rem;">
+            <li>✅ 1000+ Internship Opportunities</li>
+            <li>✅ DSA & Problem Solving Training</li>
+            <li>✅ Full-Stack Web Development</li>
+            <li>✅ Placement Preparation & Mock Interviews</li>
+          </ul>
+          <button class="btn btn-primary" onclick="scrollToSection('courses')">Explore Courses</button>
+        </div>
+        <div class="hero-illustration-wrapper" data-aos="fade-right">
+          <img src="assets/internship_illustration.png" alt="Internships" class="floating-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section (Appended below Internships) -->
+    <section id="courses" class="programs-section">
+      <div class="pricing-container">
+        <div class="pricing-header" data-aos="fade-up">
+          <h2>Skill Development Courses</h2>
+          <p class="pricing-subtext">Master top technologies with our highly-rated courses.</p>
+          <div class="discount-badge mt-1">🌟 Use an Ambassador Code & Save 10%</div>
+        </div>
+        <div class="pricing-grid" id="courses-grid">
+          <!-- JS will inject courses here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Blog Section -->
+    <section id="blog" class="blog-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Latest Resources & Guides</h2>
+          <p>Read our expert guides on JEE and Admissions.</p>
+        </div>
+        <div class="blog-grid">
+          <a href="#" class="blog-card glass-card" data-aos="fade-up" data-aos-delay="100">
+            <h4>JoSAA Choice Filling Guide</h4>
+            <span class="read-more">Read More →</span>
+          </a>
+          <a href="#" class="blog-card glass-card" data-aos="fade-up" data-aos-delay="200">
+            <h4>CSAB Counselling Complete Process</h4>
+            <span class="read-more">Read More →</span>
+          </a>
+          <a href="#" class="blog-card glass-card" data-aos="fade-up" data-aos-delay="300">
+            <h4>Top NITs for Computer Science</h4>
+            <span class="read-more">Read More →</span>
+          </a>
+          <a href="#" class="blog-card glass-card" data-aos="fade-up" data-aos-delay="400">
+            <h4>Best Colleges Through JEE Main</h4>
+            <span class="read-more">Read More →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -218,35 +326,53 @@
     <!-- FAQ Section -->
     <section id="faq" class="faq-section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h2>Frequently Asked Questions</h2>
         </div>
-        <div class="faq-container">
+        <div class="faq-container" data-aos="fade-up">
           <div class="faq-item glass-card">
             <div class="faq-question">
-              <h4>How do I access the courses after payment?</h4>
+              <h4>What is JoSAA Counselling?</h4>
               <span class="toggle-icon">+</span>
             </div>
             <div class="faq-answer">
-              <p>Once your payment is verified via WhatsApp, you will receive an exclusive login link and credentials to access your dashboard immediately.</p>
+              <p>JoSAA (Joint Seat Allocation Authority) is the centralized counselling process for admission to IITs, NITs, IIITs, and other GFTIs based on JEE Main and Advanced ranks.</p>
             </div>
           </div>
           <div class="faq-item glass-card">
             <div class="faq-question">
-              <h4>Is the internship opportunity guaranteed?</h4>
+              <h4>What is CSAB?</h4>
               <span class="toggle-icon">+</span>
             </div>
             <div class="faq-answer">
-              <p>Yes, students who successfully complete all assignments and the final capstone project in our skill development courses are guaranteed an internship opportunity with our partner companies.</p>
+              <p>CSAB (Central Seat Allocation Board) conducts special rounds of counselling for the vacant seats left in NITs, IIITs, and GFTIs after all JoSAA rounds are completed.</p>
             </div>
           </div>
           <div class="faq-item glass-card">
             <div class="faq-question">
-              <h4>How long does the JOSAA support last?</h4>
+              <h4>Can I get an NIT with my rank?</h4>
               <span class="toggle-icon">+</span>
             </div>
             <div class="faq-answer">
-              <p>Our experts will be with you until the very last round of CSAB counseling or until you successfully freeze your seat and complete the physical reporting process.</p>
+              <p>Yes, depending on your category, home state quota, and choice filling strategy. Our expert counsellors analyze previous year cutoffs to predict and secure the best possible NIT for your rank.</p>
+            </div>
+          </div>
+          <div class="faq-item glass-card">
+            <div class="faq-question">
+              <h4>Why use College Pilot?</h4>
+              <span class="toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>College Pilot provides data-driven, personalized choice filling lists, one-to-one mentorship, and expert guidance till admission to ensure you don't make mistakes that could cost you a good college.</p>
+            </div>
+          </div>
+          <div class="faq-item glass-card">
+            <div class="faq-question">
+              <h4>How does counselling work?</h4>
+              <span class="toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Once you enroll, we analyze your rank, create a personalized college shortlist, provide the exact choice filling order, and guide you through every round of seat allotment and physical reporting.</p>
             </div>
           </div>
         </div>
@@ -255,17 +381,38 @@
 
   </main>
 
+  <!-- Comprehensive Footer -->
   <footer class="footer-section">
-    <div class="container footer-content">
+    <div class="container footer-grid">
       <div class="footer-brand">
         <h3>🚀 College Pilot</h3>
-        <p>Your Guide. Your College. Your Future.</p>
+        <p>Your Guide. Your College. Your Future. Shaping the careers of 1000+ students across India.</p>
       </div>
       <div class="footer-links">
-        <h4>Contact</h4>
-        <p>Email: <a href="mailto:team.collegepilot@gmail.com">team.collegepilot@gmail.com</a></p>
-        <p>Phone: +91 9905225134</p>
-        <p>WhatsApp: +91 8210330277</p>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#packages">Counselling</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact & Socials</h4>
+        <ul>
+          <li><a href="mailto:team.collegepilot@gmail.com">team.collegepilot@gmail.com</a></li>
+          <li><a href="https://wa.me/919955136965" target="_blank">WhatsApp Us</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
@@ -346,6 +493,8 @@
     </div>
   </div>
 
-  <script src="app.js?v=3"></script>
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
