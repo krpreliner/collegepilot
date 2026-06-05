@@ -1,22 +1,22 @@
-/* --- CSS Variables - Dark Theme (Previous Layout) --- */
+/* --- CSS Variables - Vibrant & Student Friendly --- */
 :root {
-  --primary-color: #3b82f6; /* Royal Blue */
-  --primary-hover: #2563eb; 
-  --secondary-color: #7c3aed; /* Vibrant Purple */
-  --secondary-hover: #6d28d9; 
-  --accent-color: #10b981; /* Neon Green */
-  --bg-color: #090e17; /* Deep Navy/Black Background */
-  --text-main: #f8fafc; /* White text */
-  --text-light: #94a3b8; /* Muted text */
-  --white: #111827; /* Dark Card Background */
+  --primary-color: #6c5ce7; /* Playful Purple */
+  --primary-hover: #5f27cd; /* Deep Purple */
+  --secondary-color: #ff6b81; /* Vibrant Pink/Coral */
+  --secondary-hover: #ff4757; /* Deeper Pink/Coral */
+  --accent-color: #1dd1a1; /* Teal Green */
+  --bg-color: #f0f3f8; /* Soft blue-grey background */
+  --text-main: #2d3436; /* Dark grey for readability */
+  --text-light: #636e72; /* Lighter grey for secondary text */
+  --white: #ffffff;
   
-  --glass-bg: rgba(17, 24, 39, 0.7);
-  --glass-border: rgba(30, 41, 59, 1);
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 15px 30px rgba(37, 99, 235, 0.15); /* Blue glow */
-  --border-radius: 24px;
-  --btn-radius: 50px;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 1);
+  --shadow-sm: 0 4px 6px rgba(108, 92, 231, 0.05);
+  --shadow-md: 0 10px 20px rgba(108, 92, 231, 0.1);
+  --shadow-lg: 0 15px 30px rgba(108, 92, 231, 0.15);
+  --border-radius: 24px; /* More rounded, friendly corners */
+  --btn-radius: 50px; /* Pill shaped buttons */
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -33,8 +33,8 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
-  /* Dark dotted background */
-  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.05) 1px, var(--bg-color) 1px);
+  /* Fun subtle background pattern */
+  background-image: radial-gradient(var(--primary-color) 0.5px, transparent 0.5px), radial-gradient(var(--primary-color) 0.5px, var(--bg-color) 0.5px);
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
   background-attachment: fixed;
@@ -45,7 +45,7 @@ body::before {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: var(--bg-color);
-  opacity: 0.85;
+  opacity: 0.95; /* Soften the dots */
   z-index: -1;
 }
 
@@ -411,7 +411,7 @@ main {
   padding: 1rem;
   border: 1px solid var(--glass-border);
   border-radius: 12px;
-  background: rgba(15, 23, 42, 0.8);
+  background: var(--glass-bg);
   font-family: inherit;
   font-size: 1rem;
   transition: var(--transition);
@@ -434,7 +434,7 @@ main {
 .file-upload-wrapper input[type=file] {
   font-size: 1rem;
   padding: 10px;
-  background: rgba(15, 23, 42, 0.8);
+  background: var(--glass-bg);
 }
 
 .status-message {
@@ -485,12 +485,12 @@ main {
   font-size: 3rem;
   margin-bottom: 1rem;
   display: inline-block;
-  background: rgba(30, 41, 59, 0.5);
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(255, 107, 129, 0.1));
   width: 90px;
   height: 90px;
   line-height: 90px;
   border-radius: 50%;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .about-feature-box h4 {
