@@ -6,77 +6,41 @@ const courses = [
 ];
 
 const josaaPlans = [
-  { id: 'j1', title: 'JOSAA Plan', price: 599, features: ['Choice Filling List', 'College Predictor', 'Email Support'] },
-  { id: 'j2', title: 'JOSAA + CSAB Plan', price: 999, features: ['Personalized Choice Filling', 'Direct Call with Expert', 'Document Verification Help', 'Priority WhatsApp Support'] }
+  { id: 'j1', title: 'JOSAA Counselling', price: 599, features: ['Personalized College Shortlist', 'Choice Filling Strategy', 'Round-wise Guidance'] },
+  { id: 'j2', title: 'JOSAA + CSAB Counselling', price: 999, features: ['Everything in JOSAA', 'Expert Support Till Admission', 'Priority Call Support'] }
 ];
-
-// --- DOM Elements ---
-const navLinks = document.querySelectorAll('.nav-link');
-const views = document.querySelectorAll('.view-section');
-const coursesGrid = document.getElementById('courses-grid');
-const josaaGrid = document.getElementById('josaa-grid');
-const form = document.getElementById('registration-form');
-const serviceNameInput = document.getElementById('service-name');
-const serviceAmountInput = document.getElementById('service-amount');
-const paymentTitle = document.getElementById('payment-title');
-const paymentAmount = document.getElementById('payment-amount');
-const qrImage = document.getElementById('qr-image');
 
 // --- Payment & WhatsApp Configuration ---
 const upiId = "alexaman000r-1@oksbi";
 const payeeName = "Aman Raj";
-const finalWhatsappNumber = "919955136965";
+const finalWhatsappNumber = "918210330277";
 
-// --- Navigation Logic (SPA) ---
+// --- DOM Elements ---
+const coursesGrid = document.getElementById('courses-grid');
+const josaaGrid = document.getElementById('josaa-grid');
 const hamburger = document.querySelector('.hamburger');
 const navLinksContainer = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-  navLinksContainer.classList.toggle('active');
-});
-
-function showView(targetId) {
-  views.forEach(view => {
-    view.classList.remove('active');
-  });
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.dataset.target === targetId) {
-      link.classList.add('active');
-    }
-  });
-
-  const targetView = document.getElementById(targetId);
-  if (targetView) {
-    targetView.classList.add('active');
-    window.scrollTo(0, 0);
-  }
-}
-
-navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    navLinksContainer.classList.remove('active');
-    const targetId = link.dataset.target;
-    showView(targetId);
-  });
-});
-
-// Buttons that trigger navigation
-document.querySelectorAll('[data-nav]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    showView(btn.dataset.nav);
-  });
-});
+const navLinks = document.querySelectorAll('.nav-link');
+const scrollFadeElements = document.querySelectorAll('.scroll-fade');
 
 // --- Render Content ---
 function renderCards(data, container, buttonText) {
+  if(!container) return;
   container.innerHTML = '';
   data.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card glass-card';
+    
+    // Add "BEST VALUE" tag for premium JOSAA plan as per poster
+    let badgeHtml = '';
+    if(item.price === 999) {
+      badgeHtml = `<div style="position:absolute; top:-15px; right:20px; background:var(--accent-color); color:#fff; font-size:0.8rem; font-weight:bold; padding:4px 12px; border-radius:20px; box-shadow:0 4px 10px rgba(255,107,129,0.4);">BEST VALUE</div>`;
+      card.style.position = 'relative';
+      card.style.border = '2px solid var(--primary-color)';
+    }
+
     card.innerHTML = `
+      ${badgeHtml}
       <h3 class="card-title">${item.title}</h3>
       <div class="card-price">₹${item.price}</div>
       <ul class="card-features">
@@ -88,23 +52,115 @@ function renderCards(data, container, buttonText) {
   });
 }
 
-renderCards(courses, coursesGrid, 'Buy Course');
-renderCards(josaaPlans, josaaGrid, 'Register Now');
+renderCards(courses, coursesGrid, 'Start Learning');
+renderCards(josaaPlans, josaaGrid, 'Book Your Slot Now');
 
-// --- Payment Logic ---
+// --- Mobile Navigation ---
+if(hamburger) {
+  hamburger.addEventListener('click', () => {
+    navLinksContainer.classList.toggle('active');
+  });
+}
+
+// --- Smooth Scrolling ---
+window.scrollToSection = function(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    // offset for fixed navbar
+    const navHeight = document.querySelector('.navbar').offsetHeight;
+    const targetPosition = section.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+    
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  }
+};
+
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    navLinksContainer.classList.remove('active'); // Close mobile menu
+    
+    // Update active nav state
+    navLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+    
+    const targetId = link.getAttribute('href').substring(1);
+    scrollToSection(targetId);
+  });
+});
+
+// --- Scroll Animations (Intersection Observer) ---
+const fadeObserverOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.15
+};
+
+const fadeObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // Animate only once
+    }
+  });
+}, fadeObserverOptions);
+
+scrollFadeElements.forEach(el => {
+  fadeObserver.observe(el);
+});
+
+// --- FAQ Accordion Logic ---
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    // Close other active items if desired
+    document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+      if (activeItem !== item) {
+        activeItem.classList.remove('active');
+      }
+    });
+    item.classList.toggle('active');
+  });
+});
+
+// --- Payment Modal Logic ---
+const modal = document.getElementById('payment-modal');
+const serviceNameInput = document.getElementById('service-name');
+const serviceAmountInput = document.getElementById('service-amount');
+const paymentTitle = document.getElementById('payment-title');
+const paymentAmount = document.getElementById('payment-amount');
+const qrImage = document.getElementById('qr-image');
+const form = document.getElementById('registration-form');
+
 window.initiatePayment = function(serviceName, amount) {
   serviceNameInput.value = serviceName;
   serviceAmountInput.value = amount;
-  
   paymentTitle.textContent = `Register for ${serviceName}`;
   paymentAmount.textContent = `₹${amount}`;
   
   // Generate QR Code URL
   const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiUrl)}`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
   qrImage.src = qrUrl;
 
-  showView('payment');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+};
+
+window.closePaymentModal = function() {
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+  form.reset();
+  document.getElementById('upload-status').textContent = '';
+};
+
+// Close modal if clicked outside
+window.onclick = function(event) {
+  if (event.target == modal) {
+    closePaymentModal();
+  }
 };
 
 // --- Form & Upload Logic ---
@@ -124,8 +180,8 @@ form.addEventListener('submit', async (e) => {
   
   submitBtn.disabled = true;
   btnText.textContent = 'Uploading...';
-  statusMsg.textContent = 'Uploading screenshot, please wait...';
-  statusMsg.style.color = 'var(--accent-color)';
+  statusMsg.textContent = 'Uploading screenshot...';
+  statusMsg.style.color = 'var(--primary-color)';
   
   try {
     const formData = new FormData();
@@ -149,9 +205,8 @@ form.addEventListener('submit', async (e) => {
       const utr = document.getElementById('transaction-id').value;
       const service = serviceNameInput.value;
       const amount = serviceAmountInput.value;
-      const additionalMsg = document.getElementById('message').value;
       
-      let message = `*New Registration - College Pilot*%0A%0A` +
+      let message = `*🚀 New Registration - College Pilot*%0A%0A` +
                     `*Name:* ${name}%0A` +
                     `*Mobile:* ${mobile}%0A` +
                     `*Email:* ${email}%0A` +
@@ -159,30 +214,24 @@ form.addEventListener('submit', async (e) => {
                     `*Amount:* ₹${amount}%0A` +
                     `*Transaction UTR:* ${utr}%0A%0A` +
                     `*Payment Screenshot:* ${downloadUrl}`;
-                    
-      if (additionalMsg) {
-        message += `%0A%0A*Message:* ${additionalMsg}`;
-      }
                       
       // Redirect to WhatsApp
       window.location.href = `https://wa.me/${finalWhatsappNumber}?text=${message}`;
       
       setTimeout(() => {
+        closePaymentModal();
         submitBtn.disabled = false;
-        btnText.textContent = 'Submit & Send to WhatsApp';
-        statusMsg.textContent = '';
-        form.reset();
-        showView('home');
-      }, 2000);
+        btnText.textContent = 'Send to WhatsApp';
+      }, 1000);
       
     } else {
       throw new Error('Upload failed');
     }
   } catch (error) {
     console.error('Error:', error);
-    statusMsg.textContent = 'Upload failed. Please try again or send details directly to WhatsApp.';
-    statusMsg.style.color = 'var(--secondary-color)';
+    statusMsg.textContent = 'Upload failed. Please send details directly to WhatsApp.';
+    statusMsg.style.color = 'var(--accent-color)';
     submitBtn.disabled = false;
-    btnText.textContent = 'Submit & Send to WhatsApp';
+    btnText.textContent = 'Send to WhatsApp';
   }
 });
