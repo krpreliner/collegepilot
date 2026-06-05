@@ -28,6 +28,13 @@ const payeeName = "Aman Raj";
 const finalWhatsappNumber = "919955136965";
 
 // --- Navigation Logic (SPA) ---
+const hamburger = document.querySelector('.hamburger');
+const navLinksContainer = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinksContainer.classList.toggle('active');
+});
+
 function showView(targetId) {
   views.forEach(view => {
     view.classList.remove('active');
@@ -50,6 +57,7 @@ function showView(targetId) {
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
+    navLinksContainer.classList.remove('active');
     const targetId = link.dataset.target;
     showView(targetId);
   });

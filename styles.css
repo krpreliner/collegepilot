@@ -572,7 +572,39 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .nav-container {
+    position: relative;
+  }
   .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3.5rem;
+    left: -2rem;
+    width: calc(100% + 4rem);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 0 0 24px 24px;
+    padding: 1rem 0;
+    gap: 1rem;
+    box-shadow: var(--shadow-lg);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .nav-links.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-link {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  .nav-link::after {
     display: none;
   }
   .hamburger {
@@ -582,4 +614,23 @@ footer {
   .card, .payment-container, .contact-container, .about-main-card {
     padding: 1.5rem;
   }
+  .hero-image {
+    height: 300px;
+  }
+  .abstract-shape-1 {
+    width: 200px;
+    height: 200px;
+  }
+  .abstract-shape-2 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  .btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 28px; }
+  .whatsapp-float svg { width: 28px; height: 28px; }
 }
